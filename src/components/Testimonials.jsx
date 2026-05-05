@@ -10,15 +10,17 @@ const testimonials = [
     tag: 'FUE Transplant',
     initials: 'AH',
     color: '#4da6d6',
+    result: 'before-after',
   },
   {
     name: 'Mohamed Ali',
     location: 'Alexandria, Egypt',
     rating: 5,
-    text: 'Outstanding results after my PRP treatment. The team was professional and the clinic was state-of-the-art. My hair density improved by over 60% in just 6 months!',
+    text: 'Outstanding results after my PRP treatment. My hair density improved by over 60% in just 6 months. The team was professional and clinic state-of-the-art.',
     tag: 'PRP Treatment',
     initials: 'MA',
     color: '#1e3a5f',
+    result: 'before-after',
   },
   {
     name: 'Kareem Nasser',
@@ -27,16 +29,18 @@ const testimonials = [
     text: 'Flew from Dubai specifically to see Dr. Moghazy. Best decision I ever made. The procedure was painless and the recovery was smooth. Results are phenomenal!',
     tag: 'Hair Restoration',
     initials: 'KN',
-    color: '#c4e538',
+    color: '#2a4d7f',
+    result: 'before-after',
   },
   {
     name: 'Omar Khalil',
     location: 'Riyadh, KSA',
     rating: 5,
-    text: 'World-class service from consultation to follow-up. Dr. Moghazy is a true artist. My hairline looks completely natural and my confidence is at an all-time high.',
+    text: 'World-class service from consultation to follow-up. Dr. Moghazy is a true artist. My hairline looks completely natural and confidence at an all-time high.',
     tag: 'FUE Transplant',
     initials: 'OK',
-    color: '#2a4d7f',
+    color: '#4da6d6',
+    result: 'before-after',
   },
   {
     name: 'Sara Ahmed',
@@ -45,98 +49,110 @@ const testimonials = [
     text: 'As a woman experiencing hair thinning, I was nervous. Dr. Moghazy made me feel at ease and the treatment results have been life-changing. Highly recommend!',
     tag: 'PRP + Mesotherapy',
     initials: 'SA',
-    color: '#4da6d6',
+    color: '#c4e538',
+    result: 'before-after',
   },
   {
     name: 'Youssef Ibrahim',
     location: 'Giza, Egypt',
     rating: 5,
-    text: 'The cosmetic surgery procedure was done with great precision. Recovery was faster than expected. The team\'s attention to detail is unmatched. 10/10 experience.',
+    text: "The procedure was done with great precision. Recovery was faster than expected. The team's attention to detail is unmatched. 10/10 experience.",
     tag: 'Cosmetic Surgery',
     initials: 'YI',
     color: '#1e3a5f',
+    result: 'before-after',
   },
 ];
 
+const brands = ['Dropbox', 'Slack', 'Notion', 'Figma', 'Linear', 'Vercel'];
+
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
-  const sectionRef = useRef(null);
-  const trackRef = useRef(null);
-
-  const visibleCount = () => {
-    if (typeof window === 'undefined') return 3;
-    if (window.innerWidth <= 600) return 1;
-    if (window.innerWidth <= 900) return 2;
-    return 3;
-  };
-
   const [visible, setVisible] = useState(3);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const update = () => setVisible(visibleCount());
+    const update = () => {
+      if (window.innerWidth <= 600) setVisible(1);
+      else if (window.innerWidth <= 900) setVisible(2);
+      else setVisible(3);
+    };
     update();
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
   }, []);
 
-  const maxIndex = Math.max(0, testimonials.length - visible);
-
-  const prev = () => setCurrent(c => Math.max(0, c - 1));
-  const next = () => setCurrent(c => Math.min(maxIndex, c + 1));
-
-  const cardWidthPct = 100 / visible;
-  const gapPx = 24;
-  const translateX = current * (cardWidthPct + (gapPx / (1200 / visible)));
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.1 }
     );
-
-    const els = sectionRef.current?.querySelectorAll('.fade-in');
-    els?.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
+    sectionRef.current?.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
+
+  const maxIndex = Math.max(0, testimonials.length - visible);
+  const prev = () => setCurrent(c => Math.max(0, c - 1));
+  const next = () => setCurrent(c => Math.min(maxIndex, c + 1));
 
   return (
     <section className="testimonials" id="testimonials" ref={sectionRef}>
       <div className="container">
-        <div className="testimonials-top">
-          <div className="fade-in">
+
+        {/* Header */}
+        <div className="testimonials-header">
+          <div className="testimonials-header-left fade-in">
             <span className="section-tag">Success Stories</span>
-            <h2 className="section-title">Natural Results, Real Confidence</h2>
+            <h2 className="section-title">
+              Natural Results<br />Real Confidence
+            </h2>
             <p className="section-subtitle">
-              Hear from our patients who regained their confidence with Dr. Moghazy's expert care.
+              From the first consultation to the final result, our patients experience
+              a transformation that stays with them for life.
             </p>
           </div>
-          <div className="testimonials-controls fade-in fade-in-delay-1">
-            <button className="ctrl-btn ctrl-btn-outline" onClick={prev} disabled={current === 0} aria-label="Previous">
-              ←
-            </button>
-            <button className="ctrl-btn ctrl-btn-filled" onClick={next} disabled={current >= maxIndex} aria-label="Next">
-              →
-            </button>
+
+          <div className="testimonials-header-right fade-in fade-in-delay-1">
+            {/* Result highlight card */}
+            <div className="testi-result-card">
+              <div className="testi-result-top">
+                <span className="testi-result-badge">Results That Stay With You</span>
+              </div>
+              <div className="testi-result-imgs">
+                <div className="testi-result-img-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80"
+                    alt="Before"
+                  />
+                  <span className="testi-img-label">Before</span>
+                </div>
+                <div className="testi-result-img-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80"
+                    alt="After"
+                  />
+                  <span className="testi-img-label after">After</span>
+                </div>
+              </div>
+              <div className="testi-result-stat">
+                <strong>98%</strong> of patients see results within 6 months
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="testimonials-slider">
+        {/* Slider */}
+        <div className="testimonials-slider fade-in">
           <div
-            ref={trackRef}
             className="testimonials-track"
-            style={{ transform: `translateX(calc(-${current * (100 / visible)}% - ${current * gapPx / visible}px))` }}
+            style={{
+              transform: `translateX(calc(-${current * (100 / visible)}% - ${current * 24 / visible}px))`,
+            }}
           >
             {testimonials.map((t, i) => (
               <div key={i} className="testimonial-card">
-                <div className="testimonial-header">
-                  <div
-                    className="testimonial-avatar"
-                    style={{ backgroundColor: t.color }}
-                  >
+                <div className="testimonial-top">
+                  <div className="testimonial-avatar" style={{ background: t.color }}>
                     {t.initials}
                   </div>
                   <div className="testimonial-info">
@@ -149,25 +165,41 @@ export default function Testimonials() {
                     ))}
                   </div>
                 </div>
-
                 <p className="testimonial-text">"{t.text}"</p>
-
                 <span className="testimonial-tag">{t.tag}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="testimonials-dots">
-          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-            <button
-              key={i}
-              className={`dot${current === i ? ' active' : ''}`}
-              onClick={() => setCurrent(i)}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
+        {/* Controls + Dots */}
+        <div className="testimonials-footer fade-in">
+          <div className="testimonials-dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button
+                key={i}
+                className={`dot${current === i ? ' active' : ''}`}
+                onClick={() => setCurrent(i)}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
+          <div className="testimonials-controls">
+            <button className="ctrl-btn ctrl-btn-outline" onClick={prev} disabled={current === 0}>←</button>
+            <button className="ctrl-btn ctrl-btn-filled" onClick={next} disabled={current >= maxIndex}>→</button>
+          </div>
         </div>
+
+        {/* Brand logos */}
+        <div className="testi-brands fade-in">
+          <div className="testi-brands-label">Trusted by patients from</div>
+          <div className="testi-brands-logos">
+            {brands.map((b, i) => (
+              <div key={i} className="testi-brand-logo">{b}</div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

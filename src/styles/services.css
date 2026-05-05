@@ -102,6 +102,18 @@
   font-weight: 600;
 }
 
+.service-card-stat {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(196,229,56,0.90);
+  color: #1a3000;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
 .service-card-body {
   padding: 24px;
   display: flex;
