@@ -1,96 +1,146 @@
 import { useEffect, useRef, useState } from 'react';
 import '../styles/stats.css';
 
-function useCountUp(target, duration = 1800, started = false) {
+function useCountUp(target, duration = 2000, started = false) {
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     if (!started) return;
     let start = null;
     const isDecimal = target % 1 !== 0;
-    const step = (timestamp) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = isDecimal
-        ? parseFloat((eased * target).toFixed(1))
-        : Math.floor(eased * target);
-      setCount(value);
-      if (progress < 1) requestAnimationFrame(step);
+    const raf = (ts) => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      setCount(isDecimal ? parseFloat((e * target).toFixed(1)) : Math.floor(e * target));
+      if (p < 1) requestAnimationFrame(raf);
     };
-    requestAnimationFrame(step);
+    requestAnimationFrame(raf);
   }, [started, target, duration]);
-
   return count;
 }
 
-const statsData = [
-  {
-    variant: 'stat-card-navy',
-    icon: '✓',
-    number: 98.0,
-    suffix: '%',
-    label: 'Naturally Restored Hair',
-    desc: 'Our clients achieve natural-looking results with long-lasting hair restoration.',
-    tags: ['Follicular Units', 'Strands', 'Natural'],
-  },
-  {
-    variant: 'stat-card-sky',
-    icon: '💊',
-    number: 500,
-    suffix: '+',
-    label: 'Successful Treatments',
-    desc: 'Hundreds of satisfied patients across Egypt and the Middle East.',
-    tags: ['FUE', 'FUT', 'PRP'],
-  },
-  {
-    variant: 'stat-card-lime',
-    icon: '📈',
-    number: 59.7,
-    suffix: '%',
-    label: 'Hair Growth Improvement',
-    desc: 'Advanced PRP procedure delivering precise natural-looking hair results.',
-    tags: ['Growth', 'Density', 'Thickness'],
-  },
-];
+function useFadeIn(ref) {
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [ref]);
+}
 
-function StatCard({ data, index }) {
+/* ── Card 1: Dark navy with big number ── */
+function CardDark() {
   const ref = useRef(null);
   const [started, setStarted] = useState(false);
-  const count = useCountUp(data.number, 1800, started);
+  const count = useCountUp(98.0, 2000, started);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setStarted(true); obs.disconnect(); } },
       { threshold: 0.3 }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className={`stat-card ${data.variant} fade-in fade-in-delay-${index + 1}`}
-    >
-      <div className="stat-card-header">
-        <div className="stat-icon">{data.icon}</div>
-        <div className="stat-arrow">↗</div>
+    <div ref={ref} className="stat-card stat-dark fade-in">
+      <div className="stat-dark-top">
+        <div className="stat-dark-icon">✓</div>
+        <div className="stat-dark-arrow">↗</div>
       </div>
 
-      <div className="stat-number">
-        {data.number % 1 !== 0 ? count.toFixed(1) : count}{data.suffix}
-      </div>
-
-      <div>
-        <div className="stat-label">{data.label}</div>
-        <div className="stat-desc">{data.desc}</div>
-      </div>
-
-      <div className="stat-tags">
-        {data.tags.map(tag => (
-          <span key={tag} className="stat-tag">{tag}</span>
+      <div className="stat-dark-avatars">
+        {['AH','MK','SR','YI'].map((init, i) => (
+          <div key={i} className="stat-dark-avatar"
+            style={{ background: ['#4da6d6','#2a4d7f','#c4e538','#4da6d6'][i] }}>
+            {init}
+          </div>
         ))}
+      </div>
+
+      <div className="stat-dark-number">
+        {count.toFixed(1)}%
+      </div>
+
+      <div className="stat-dark-label">Naturally Restored Hair</div>
+      <div className="stat-dark-desc">Real Hair Transplant Success With Natural-Looking Results</div>
+
+      <div className="stat-dark-tags">
+        <span>Follicular</span>
+        <span>University Streams</span>
+        <span>Natural</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── Card 2: Light with photo ── */
+function CardLight() {
+  const ref = useRef(null);
+  useFadeIn(ref);
+
+  return (
+    <div ref={ref} className="stat-card stat-light fade-in fade-in-delay-1">
+      <div className="stat-light-photo">
+        <img
+          src="https://images.unsplash.com/photo-1559757175-7cb036e0d465?w=500&q=80"
+          alt="Hair Treatment"
+        />
+        <div className="stat-light-photo-badge">Hair Treatment</div>
+      </div>
+      <div className="stat-light-body">
+        <div className="stat-light-label">Hair Treatment</div>
+        <div className="stat-light-desc">
+          Advanced FUE procedure delivering precise natural-looking hair results with minimal recovery time.
+        </div>
+        <div className="stat-light-tags">
+          <span>FUE</span>
+          <span>PRP</span>
+          <span>Restore</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Card 3: Green/lime with number ── */
+function CardGreen() {
+  const ref = useRef(null);
+  const [started, setStarted] = useState(false);
+  const count = useCountUp(59.7, 2000, started);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setStarted(true); obs.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="stat-card stat-green fade-in fade-in-delay-2">
+      <div className="stat-green-top">
+        <div className="stat-green-chart">📈</div>
+        <div className="stat-green-arrow">↗</div>
+      </div>
+
+      <div className="stat-green-number">
+        {count.toFixed(1)}%
+      </div>
+
+      <div className="stat-green-label">Hair Growth Improvement</div>
+      <div className="stat-green-desc">
+        Advanced PRP procedure delivering precise natural-looking hair results.
+      </div>
+
+      <div className="stat-green-tags">
+        <span>Growth</span>
+        <span>Density</span>
+        <span>Thickness</span>
       </div>
     </div>
   );
@@ -100,38 +150,45 @@ export default function Stats() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.1 }
     );
-
-    const els = sectionRef.current?.querySelectorAll('.fade-in');
-    els?.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
+    sectionRef.current?.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   return (
     <section className="stats" id="stats" ref={sectionRef}>
       <div className="container">
-        <div className="stats-header fade-in">
-          <span className="section-tag">Our Results</span>
-          <h2 className="section-title">Advanced Hair Restoration Solutions</h2>
-          <p className="section-subtitle">
-            Modern technology and expert care to restore your confidence with safe and effective hair transplant treatments.
-          </p>
+
+        {/* Header row */}
+        <div className="stats-header">
+          <div className="stats-header-left fade-in">
+            <h2 className="section-title">Advanced Hair<br />Restoration Solutions</h2>
+          </div>
+          <div className="stats-header-right fade-in fade-in-delay-1">
+            <p className="section-subtitle">
+              Modern technology and expert care to restore your confidence with safe
+              and effective hair transplant treatments.
+            </p>
+            <button
+              className="stats-view-btn"
+              onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              View All Solutions
+              <span className="stats-view-btn-arrow">↗</span>
+            </button>
+          </div>
         </div>
 
+        {/* Cards */}
         <div className="stats-grid">
-          {statsData.map((stat, i) => (
-            <StatCard key={i} data={stat} index={i} />
-          ))}
+          <CardDark />
+          <CardLight />
+          <CardGreen />
         </div>
+
       </div>
     </section>
   );
