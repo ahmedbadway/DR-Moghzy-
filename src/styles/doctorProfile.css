@@ -351,6 +351,34 @@
   border: 1px solid rgba(255,255,255,0.15);
 }
 
+/* ── Icon-only social links ── */
+.dp-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.dp-icon-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dp-icon-link--ig {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366);
+  color: white;
+}
+
+.dp-icon-link--tt {
+  background: #010101;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
 .dp-cta-btn {
   background: var(--lime);
   color: var(--navy-dark);
