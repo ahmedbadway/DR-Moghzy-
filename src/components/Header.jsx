@@ -3,7 +3,7 @@ import '../styles/header.css';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'Doctor', href: '#about' },
+  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Results', href: '#testimonials' },
   { label: 'Pricing', href: '#cta' },
