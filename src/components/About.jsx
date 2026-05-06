@@ -52,7 +52,7 @@ export default function About() {
           {/* RIGHT — features */}
           <div className="about-right">
             <div className="fade-in">
-              <span className="section-tag">About the Doctor</span>
+              <span className="section-tag">Why Choose Us</span>
               <h2 className="section-title">
                 Dr. Ahmed El Moghazy —<br />Hair &amp; Aesthetic Surgeon
               </h2>
