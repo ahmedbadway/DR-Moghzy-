@@ -16,7 +16,7 @@ export default function Hero() {
     <section className="hero" id="hero">
 
       {/* ── VIDEO BACKGROUND ── */}
-      <div className="hero-video-wrap" style={{ transform: `translateY(${scrollY * 0.25}px)` }}>
+      <div className="hero-video-wrap">
         <video
           className="hero-video"
           autoPlay
@@ -24,11 +24,8 @@ export default function Hero() {
           loop
           playsInline
           poster="/images/hero-bg.jpg"
-        >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-          {/* Fallback: Pexels free video if local file not uploaded yet */}
-          <source src="https://videos.pexels.com/video-files/6823571/6823571-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-        </video>
+          src="/videos/hero-video.mp4"
+        />
       </div>
 
       {/* Dark overlay */}
