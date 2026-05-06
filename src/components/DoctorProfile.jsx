@@ -42,7 +42,7 @@ export default function DoctorProfile() {
               {/* Image placeholder — replace src with actual doctor photo */}
               <div className="dp-img-placeholder">
                 <PlaceholderImg
-                  src="/images/doctor.jpg"
+                  src="./images/doctor.jpg"
                   alt="Dr. Ahmed El Moghazy"
                   className="dp-img"
                   type="doctor"

@@ -122,7 +122,7 @@ export default function Testimonials() {
               <div className="testi-result-imgs">
                 <div className="testi-result-img-wrap">
                   <PlaceholderImg
-                    src="/images/before-after-1.jpg"
+                    src="./images/before-after-1.jpg"
                     alt="Before"
                     type="before"
                   />
@@ -130,7 +130,7 @@ export default function Testimonials() {
                 </div>
                 <div className="testi-result-img-wrap">
                   <PlaceholderImg
-                    src="/images/before-after-2.jpg"
+                    src="./images/before-after-2.jpg"
                     alt="After"
                     type="after"
                   />
