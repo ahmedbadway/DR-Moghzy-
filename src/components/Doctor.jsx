@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import '../styles/doctor.css';
+import PlaceholderImg from './PlaceholderImg';
 
 export default function Doctor() {
   const ref = useRef(null);
@@ -17,9 +18,10 @@ export default function Doctor() {
     <section className="doctor" id="doctor" ref={ref}>
       {/* Background image with overlay */}
       <div className="doctor-bg">
-        <img
+        <PlaceholderImg
           src="/images/doctor-bg.jpg"
           alt="Doctor examining scalp"
+          type="doctor-bg"
         />
         <div className="doctor-bg-overlay" />
       </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import '../styles/testimonials.css';
+import PlaceholderImg from './PlaceholderImg';
 
 const testimonials = [
   {
@@ -120,16 +121,18 @@ export default function Testimonials() {
               </div>
               <div className="testi-result-imgs">
                 <div className="testi-result-img-wrap">
-                  <img
+                  <PlaceholderImg
                     src="/images/before-after-1.jpg"
                     alt="Before"
+                    type="before"
                   />
                   <span className="testi-img-label">Before</span>
                 </div>
                 <div className="testi-result-img-wrap">
-                  <img
+                  <PlaceholderImg
                     src="/images/before-after-2.jpg"
                     alt="After"
+                    type="after"
                   />
                   <span className="testi-img-label after">After</span>
                 </div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import '../styles/doctorProfile.css';
+import PlaceholderImg from './PlaceholderImg';
 
 const stats = [
   { value: '4.9', label: 'Rating', sub: 'out of 5.0' },
@@ -40,16 +41,12 @@ export default function DoctorProfile() {
             <div className="dp-img-wrap">
               {/* Image placeholder — replace src with actual doctor photo */}
               <div className="dp-img-placeholder">
-                <img
+                <PlaceholderImg
                   src="/images/doctor.jpg"
                   alt="Dr. Ahmed El Moghazy"
                   className="dp-img"
-                  onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                  type="doctor"
                 />
-                <div className="dp-img-fallback">
-                  <span className="dp-img-initials">AM</span>
-                  <span className="dp-img-hint">Doctor photo goes here</span>
-                </div>
               </div>
 
               {/* Floating rating badge */}

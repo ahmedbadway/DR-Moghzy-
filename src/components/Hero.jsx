@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/hero.css';
+import PlaceholderImg from './PlaceholderImg';
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -95,9 +96,10 @@ export default function Hero() {
             {/* Premium Hair Care card */}
             <div className="hero-premium-card">
               <div className="hero-premium-img">
-                <img
+                <PlaceholderImg
                   src="/images/doctor.jpg"
                   alt="Premium Hair Care"
+                  type="hero-doctor"
                 />
               </div>
               <div className="hero-premium-body">
