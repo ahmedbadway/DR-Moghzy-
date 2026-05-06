@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import '../styles/header.css';
 
 const navLinks = [
-  { label: 'Home',     href: '#hero' },
   { label: 'About',    href: '#profile' },
+  { label: 'Home',     href: '#hero' },
   { label: 'Services', href: '#services' },
   { label: 'Results',  href: '#testimonials' },
   { label: 'Pricing',  href: '#cta' },

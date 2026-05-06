@@ -320,13 +320,19 @@
 .dp-social-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   padding: 11px 20px;
   border-radius: var(--radius-md);
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
   transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.dp-social-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .dp-social-btn:hover {
