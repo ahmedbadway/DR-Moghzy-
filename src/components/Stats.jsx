@@ -86,7 +86,7 @@ function CardLight() {
     <div ref={ref} className="stat-card stat-light fade-in fade-in-delay-1">
       <div className="stat-light-photo">
         <img
-          src="https://images.unsplash.com/photo-1559757175-7cb036e0d465?w=500&q=80"
+          src="/images/service-1.jpg"
           alt="Hair Treatment"
         />
         <div className="stat-light-photo-badge">Hair Treatment</div>

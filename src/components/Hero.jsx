@@ -23,11 +23,11 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80"
+          poster="/images/hero-bg.jpg"
         >
-          {/* Pexels free hair/medical procedure videos */}
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+          {/* Fallback: Pexels free video if local file not uploaded yet */}
           <source src="https://videos.pexels.com/video-files/6823571/6823571-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/4226894/4226894-uhd_2560_1440_25fps.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -99,7 +99,7 @@ export default function Hero() {
             <div className="hero-premium-card">
               <div className="hero-premium-img">
                 <img
-                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80"
+                  src="/images/doctor.jpg"
                   alt="Premium Hair Care"
                 />
               </div>

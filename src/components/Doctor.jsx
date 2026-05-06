@@ -18,7 +18,7 @@ export default function Doctor() {
       {/* Background image with overlay */}
       <div className="doctor-bg">
         <img
-          src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1600&q=80"
+          src="/images/doctor-bg.jpg"
           alt="Doctor examining scalp"
         />
         <div className="doctor-bg-overlay" />

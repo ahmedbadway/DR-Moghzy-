@@ -29,7 +29,7 @@ export default function About() {
           <div className="about-left fade-in">
             <div className="about-img-wrap">
               <img
-                src="https://images.unsplash.com/photo-1612349316228-7a8b89f1ee87?w=700&q=80"
+                src="/images/about-treatment.jpg"
                 alt="Hair restoration procedure"
                 className="about-img"
               />

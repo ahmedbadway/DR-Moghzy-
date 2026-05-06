@@ -121,14 +121,14 @@ export default function Testimonials() {
               <div className="testi-result-imgs">
                 <div className="testi-result-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80"
+                    src="/images/before-after-1.jpg"
                     alt="Before"
                   />
                   <span className="testi-img-label">Before</span>
                 </div>
                 <div className="testi-result-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80"
+                    src="/images/before-after-2.jpg"
                     alt="After"
                   />
                   <span className="testi-img-label after">After</span>

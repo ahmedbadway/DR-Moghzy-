@@ -5,7 +5,7 @@ const services = [
   {
     badge: 'Most Popular',
     icon: '🔬',
-    image: 'https://images.unsplash.com/photo-1559757175-7cb036e0d465?w=600&q=80',
+    image: '/images/service-1.jpg',
     title: 'FUE Hair Transplant',
     desc: 'Follicular Unit Extraction — the gold standard in hair transplantation. Minimally invasive with natural, permanent results.',
     stat: '98% Success',
@@ -13,7 +13,7 @@ const services = [
   {
     badge: 'Advanced',
     icon: '💉',
-    image: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=600&q=80',
+    image: '/images/service-2.jpg',
     title: 'PRP Hair Treatment',
     desc: 'Platelet-Rich Plasma therapy stimulates hair follicles and promotes natural hair regrowth for thicker, healthier hair.',
     stat: '6 Month Results',
@@ -21,7 +21,7 @@ const services = [
   {
     badge: 'Cosmetic',
     icon: '✨',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80',
+    image: '/images/service-3.jpg',
     title: 'Cosmetic Surgery',
     desc: 'Expert cosmetic procedures including rhinoplasty, facelifts, and more to enhance your natural beauty with precision.',
     stat: '500+ Done',
@@ -29,7 +29,7 @@ const services = [
   {
     badge: 'Non-Surgical',
     icon: '🌿',
-    image: 'https://images.unsplash.com/photo-1612349316228-7a8b89f1ee87?w=600&q=80',
+    image: '/images/service-4.jpg',
     title: 'Scalp Micropigmentation',
     desc: 'A non-surgical solution that creates the appearance of fuller hair through precise scalp pigmentation techniques.',
     stat: 'Pain Free',
@@ -37,7 +37,7 @@ const services = [
   {
     badge: 'Premium',
     icon: '⭐',
-    image: 'https://images.unsplash.com/photo-1621798062685-b42b0d3f9f1c?w=600&q=80',
+    image: '/images/service-5.jpg',
     title: 'Eyebrow Restoration',
     desc: 'Restore natural-looking eyebrows with precision hair transplant techniques tailored to your unique facial features.',
     stat: 'Natural Look',
@@ -45,7 +45,7 @@ const services = [
   {
     badge: 'Care',
     icon: '❤️',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
+    image: '/images/service-6.jpg',
     title: 'Post-Treatment Care',
     desc: 'Comprehensive aftercare program to ensure optimal healing and the best long-term results for every patient.',
     stat: 'Lifetime Follow-up',
