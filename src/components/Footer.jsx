@@ -2,7 +2,7 @@ import '../styles/footer.css';
 
 const quickLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'About Doctor', href: '#about' },
+  { label: 'About Doctor', href: '#profile' },
   { label: 'Services', href: '#services' },
   { label: 'Success Stories', href: '#testimonials' },
   { label: 'Pricing', href: '#cta' },
@@ -143,9 +143,9 @@ export default function Footer() {
             © {new Date().getFullYear()} DR. Moghazy — Hair &amp; Cosmetic Surgery. All rights reserved.
           </p>
           <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
+            <a href="#hero" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Privacy Policy</a>
+            <a href="#hero" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Terms of Service</a>
+            <a href="#hero" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Cookie Policy</a>
           </div>
         </div>
       </div>
