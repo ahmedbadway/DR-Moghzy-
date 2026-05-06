@@ -320,13 +320,19 @@
 .dp-social-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   padding: 11px 20px;
   border-radius: var(--radius-md);
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
   transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.dp-social-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .dp-social-btn:hover {
@@ -341,6 +347,34 @@
 
 .dp-social-btn--tt {
   background: #000;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ── Icon-only social links ── */
+.dp-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.dp-icon-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dp-icon-link--ig {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366);
+  color: white;
+}
+
+.dp-icon-link--tt {
+  background: #010101;
   color: white;
   border: 1px solid rgba(255,255,255,0.15);
 }

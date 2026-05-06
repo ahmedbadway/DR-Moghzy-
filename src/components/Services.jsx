@@ -1,55 +1,14 @@
 import { useEffect, useRef } from 'react';
 import '../styles/services.css';
+import PlaceholderImg from './PlaceholderImg';
 
 const services = [
-  {
-    badge: 'Most Popular',
-    icon: '🔬',
-    image: '/images/service-1.jpg',
-    title: 'FUE Hair Transplant',
-    desc: 'Follicular Unit Extraction — the gold standard in hair transplantation. Minimally invasive with natural, permanent results.',
-    stat: '98% Success',
-  },
-  {
-    badge: 'Advanced',
-    icon: '💉',
-    image: '/images/service-2.jpg',
-    title: 'PRP Hair Treatment',
-    desc: 'Platelet-Rich Plasma therapy stimulates hair follicles and promotes natural hair regrowth for thicker, healthier hair.',
-    stat: '6 Month Results',
-  },
-  {
-    badge: 'Cosmetic',
-    icon: '✨',
-    image: '/images/service-3.jpg',
-    title: 'Cosmetic Surgery',
-    desc: 'Expert cosmetic procedures including rhinoplasty, facelifts, and more to enhance your natural beauty with precision.',
-    stat: '500+ Done',
-  },
-  {
-    badge: 'Non-Surgical',
-    icon: '🌿',
-    image: '/images/service-4.jpg',
-    title: 'Scalp Micropigmentation',
-    desc: 'A non-surgical solution that creates the appearance of fuller hair through precise scalp pigmentation techniques.',
-    stat: 'Pain Free',
-  },
-  {
-    badge: 'Premium',
-    icon: '⭐',
-    image: '/images/service-5.jpg',
-    title: 'Eyebrow Restoration',
-    desc: 'Restore natural-looking eyebrows with precision hair transplant techniques tailored to your unique facial features.',
-    stat: 'Natural Look',
-  },
-  {
-    badge: 'Care',
-    icon: '❤️',
-    image: '/images/service-6.jpg',
-    title: 'Post-Treatment Care',
-    desc: 'Comprehensive aftercare program to ensure optimal healing and the best long-term results for every patient.',
-    stat: 'Lifetime Follow-up',
-  },
+  { badge: 'Most Popular', icon: '🔬', image: '/images/service-1.jpg', placeholderType: 'fue',     title: 'FUE Hair Transplant',      desc: 'Follicular Unit Extraction — the gold standard in hair transplantation. Minimally invasive with natural, permanent results.',                                              stat: '98% Success' },
+  { badge: 'Advanced',     icon: '💉', image: '/images/service-2.jpg', placeholderType: 'prp',     title: 'PRP Hair Treatment',       desc: 'Platelet-Rich Plasma therapy stimulates hair follicles and promotes natural hair regrowth for thicker, healthier hair.',                                              stat: '6 Month Results' },
+  { badge: 'Cosmetic',     icon: '✨', image: '/images/service-3.jpg', placeholderType: 'cosmetic', title: 'Cosmetic Surgery',         desc: 'Expert cosmetic procedures including rhinoplasty, facelifts, and more to enhance your natural beauty with precision.',                                              stat: '500+ Done' },
+  { badge: 'Non-Surgical', icon: '🌿', image: '/images/service-4.jpg', placeholderType: 'scalp',   title: 'Scalp Micropigmentation',  desc: 'A non-surgical solution that creates the appearance of fuller hair through precise scalp pigmentation techniques.',                                              stat: 'Pain Free' },
+  { badge: 'Premium',      icon: '⭐', image: '/images/service-5.jpg', placeholderType: 'eyebrow', title: 'Eyebrow Restoration',      desc: 'Restore natural-looking eyebrows with precision hair transplant techniques tailored to your unique facial features.',                                              stat: 'Natural Look' },
+  { badge: 'Care',         icon: '❤️', image: '/images/service-6.jpg', placeholderType: 'care',    title: 'Post-Treatment Care',      desc: 'Comprehensive aftercare program to ensure optimal healing and the best long-term results for every patient.',                                              stat: 'Lifetime Follow-up' },
 ];
 
 export default function Services() {
@@ -91,7 +50,7 @@ export default function Services() {
           {services.map((svc, i) => (
             <div key={i} className={`service-card fade-in fade-in-delay-${(i % 3) + 1}`}>
               <div className="service-card-image">
-                <img src={svc.image} alt={svc.title} loading="lazy" />
+                <PlaceholderImg src={svc.image} alt={svc.title} type={svc.placeholderType} loading="lazy" />
                 <span className="service-card-badge">{svc.badge}</span>
                 <span className="service-card-stat">{svc.stat}</span>
               </div>

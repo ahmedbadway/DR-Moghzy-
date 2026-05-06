@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import '../styles/doctorProfile.css';
+import PlaceholderImg from './PlaceholderImg';
 
 const stats = [
   { value: '4.9', label: 'Rating', sub: 'out of 5.0' },
@@ -40,16 +41,12 @@ export default function DoctorProfile() {
             <div className="dp-img-wrap">
               {/* Image placeholder — replace src with actual doctor photo */}
               <div className="dp-img-placeholder">
-                <img
+                <PlaceholderImg
                   src="/images/doctor.jpg"
                   alt="Dr. Ahmed El Moghazy"
                   className="dp-img"
-                  onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                  type="doctor"
                 />
-                <div className="dp-img-fallback">
-                  <span className="dp-img-initials">AM</span>
-                  <span className="dp-img-hint">Doctor photo goes here</span>
-                </div>
               </div>
 
               {/* Floating rating badge */}
@@ -59,16 +56,6 @@ export default function DoctorProfile() {
                 <div className="dp-badge-label">Patient Rating</div>
               </div>
 
-              {/* Floating social badge */}
-              <div className="dp-badge dp-badge--social">
-                <div className="dp-badge-row">
-                  <span className="dp-badge-icon">📸</span>
-                  <div>
-                    <div className="dp-badge-handle">@dr_a.moghz</div>
-                    <div className="dp-badge-label">1,914 followers · 142 posts</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -141,19 +128,27 @@ export default function DoctorProfile() {
             <div className="dp-actions fade-in fade-in-delay-4">
               <a
                 href="https://www.instagram.com/dr_a.moghz"
-                className="dp-social-btn dp-social-btn--ig"
+                className="dp-icon-link dp-icon-link--ig"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram @dr_a.moghz"
               >
-                <span>📸</span> @dr_a.moghz
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" strokeWidth="1.8"/>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.8"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                </svg>
               </a>
               <a
                 href="https://www.tiktok.com/@drmoghazyisherenow"
-                className="dp-social-btn dp-social-btn--tt"
+                className="dp-icon-link dp-icon-link--tt"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="TikTok @drmoghazyisherenow"
               >
-                <span>🎵</span> @drmoghazyisherenow
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+                </svg>
               </a>
               <button
                 className="dp-cta-btn"

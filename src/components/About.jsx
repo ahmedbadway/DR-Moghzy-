@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import '../styles/about.css';
+import PlaceholderImg from './PlaceholderImg';
 
 const features = [
   { icon: '🌿', title: 'Enriched with Vitamin E', desc: 'Nourishes follicles and strengthens each strand from root to tip.' },
@@ -28,10 +29,11 @@ export default function About() {
           {/* LEFT — image with floating card */}
           <div className="about-left fade-in">
             <div className="about-img-wrap">
-              <img
+              <PlaceholderImg
                 src="/images/about-treatment.jpg"
                 alt="Hair restoration procedure"
                 className="about-img"
+                type="treatment"
               />
               <div className="about-img-badge">
                 <div className="about-badge-icon">⭐</div>
@@ -50,7 +52,7 @@ export default function About() {
           {/* RIGHT — features */}
           <div className="about-right">
             <div className="fade-in">
-              <span className="section-tag">About the Doctor</span>
+              <span className="section-tag">Why Choose Us</span>
               <h2 className="section-title">
                 Dr. Ahmed El Moghazy —<br />Hair &amp; Aesthetic Surgeon
               </h2>

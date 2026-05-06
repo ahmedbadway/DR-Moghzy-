@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import '../styles/stats.css';
+import PlaceholderImg from './PlaceholderImg';
 
 function useCountUp(target, duration = 2000, started = false) {
   const [count, setCount] = useState(0);
@@ -85,9 +86,10 @@ function CardLight() {
   return (
     <div ref={ref} className="stat-card stat-light fade-in fade-in-delay-1">
       <div className="stat-light-photo">
-        <img
+        <PlaceholderImg
           src="/images/service-1.jpg"
           alt="Hair Treatment"
+          type="fue"
         />
         <div className="stat-light-photo-badge">Hair Treatment</div>
       </div>
