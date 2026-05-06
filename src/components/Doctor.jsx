@@ -31,20 +31,20 @@ export default function Doctor() {
           <div className="doctor-left fade-in">
             <span className="doctor-tag">Meet Our Expert</span>
             <h2 className="doctor-title">
-              Tailored Hair<br />
-              Regrowth Solutions
+              Hair Loss &amp;<br />
+              Hair Restoration Expert
             </h2>
             <p className="doctor-desc">
-              Dr. Ahmed Moghazy combines cutting-edge technology with artistic precision
-              to deliver personalized hair restoration plans. Every patient receives a
-              bespoke treatment designed for their unique hair type and goals.
+              "Helping you look better, not different" — Dr. Ahmed El Moghazy is a
+              Plastic &amp; Aesthetic Plastic Surgeon dedicated to natural-looking,
+              personalized hair restoration for every patient.
             </p>
 
             <div className="doctor-credentials">
               {[
-                { num: '15+', label: 'Years Experience' },
-                { num: '500+', label: 'Surgeries Done' },
-                { num: '98%', label: 'Success Rate' },
+                { num: '1,914', label: 'Followers' },
+                { num: '4.9/5', label: 'Rating' },
+                { num: '142', label: 'Posts' },
               ].map((c, i) => (
                 <div key={i} className="doctor-cred">
                   <span className="doctor-cred-num">{c.num}</span>
@@ -67,8 +67,8 @@ export default function Doctor() {
               <div className="doctor-card-header">
                 <div className="doctor-card-avatar">AM</div>
                 <div>
-                  <div className="doctor-card-name">Dr. Ahmed Moghazy</div>
-                  <div className="doctor-card-spec">Hair Restoration Specialist</div>
+                  <div className="doctor-card-name">Dr. Ahmed El Moghazy</div>
+                  <div className="doctor-card-spec">Plastic &amp; Aesthetic Plastic Surgeon</div>
                   <div className="doctor-card-stars">★★★★★ <span>4.9</span></div>
                 </div>
               </div>

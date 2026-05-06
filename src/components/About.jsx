@@ -36,7 +36,7 @@ export default function About() {
               <div className="about-img-badge">
                 <div className="about-badge-icon">⭐</div>
                 <div>
-                  <div className="about-badge-title">4.8 / 5.0</div>
+                  <div className="about-badge-title">4.9 / 5.0</div>
                   <div className="about-badge-sub">Patient Satisfaction</div>
                 </div>
               </div>
@@ -50,13 +50,14 @@ export default function About() {
           {/* RIGHT — features */}
           <div className="about-right">
             <div className="fade-in">
-              <span className="section-tag">Why Choose Us</span>
+              <span className="section-tag">About the Doctor</span>
               <h2 className="section-title">
-                Unlock the Full<br />Power of Hair Growth
+                Dr. Ahmed El Moghazy —<br />Hair &amp; Aesthetic Surgeon
               </h2>
               <p className="section-subtitle">
-                Our advanced treatments combine science and expertise to deliver natural-looking,
-                permanent results that restore your confidence.
+                Plastic &amp; Aesthetic Plastic Surgeon and Hair Loss &amp; Hair Restoration Expert.
+                His philosophy: <em>"Helping you look better, not different."</em>
+                Follow him on Instagram <strong>@dr_a.moghz</strong> and TikTok <strong>@drmoghazyisherenow</strong>.
               </p>
             </div>
 

@@ -90,7 +90,7 @@ export default function Hero() {
                   ))}
                 </div>
                 <div className="hero-rating-text">
-                  <strong>4.6</strong> Customer Rating
+                  <strong>4.9</strong> Customer Rating
                 </div>
               </div>
             </div>

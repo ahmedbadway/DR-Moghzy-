@@ -1,5 +1,6 @@
 import './styles/global.css';
 import Header from './components/Header';
+import DoctorProfile from './components/DoctorProfile';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
 import About from './components/About';
@@ -14,6 +15,7 @@ export default function App() {
     <>
       <Header />
       <main>
+        <DoctorProfile />
         <Hero />
         <Stats />
         <About />

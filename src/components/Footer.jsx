@@ -44,14 +44,27 @@ export default function Footer() {
               </div>
             </div>
             <p className="footer-about">
-              Dr. Ahmed Moghazy is a leading hair restoration and cosmetic surgery specialist in Egypt, combining advanced techniques with personalized care for exceptional results.
+              Dr. Ahmed El Moghazy is a Plastic &amp; Aesthetic Plastic Surgeon and Hair Loss &amp; Hair Restoration Expert. "Helping you look better, not different."
             </p>
             <div className="footer-social">
-              {['f', 'in', 'tw', 'yt'].map((s, i) => (
-                <a key={i} href="#" className="social-btn" aria-label={s}>
-                  {s === 'f' ? '🌐' : s === 'in' ? '💼' : s === 'tw' ? '🐦' : '▶'}
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/dr_a.moghz"
+                className="social-btn"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📸
+              </a>
+              <a
+                href="https://www.tiktok.com/@drmoghazyisherenow"
+                className="social-btn"
+                aria-label="TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🎵
+              </a>
             </div>
           </div>
 
