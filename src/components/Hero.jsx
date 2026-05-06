@@ -24,8 +24,8 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="/images/hero-bg.jpg"
-          src="/videos/hero-video.mp4"
+          poster="./images/hero-bg.jpg"
+          src="./videos/hero-video.mp4"
         />
       </div>
 
@@ -97,7 +97,7 @@ export default function Hero() {
             <div className="hero-premium-card">
               <div className="hero-premium-img">
                 <PlaceholderImg
-                  src="/images/doctor.jpg"
+                  src="./images/doctor.jpg"
                   alt="Premium Hair Care"
                   type="hero-doctor"
                 />
