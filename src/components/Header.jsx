@@ -3,10 +3,10 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/header.css';
 
 const navLinks = [
-  { label: 'Home',     to: '/',       type: 'route' },
-  { label: 'About',    to: '/about',  type: 'route' },
-  { label: 'Services', to: '#services', type: 'anchor' },
-  { label: 'Results',  to: '#testimonials', type: 'anchor' },
+  { label: 'Home',     to: '/',         type: 'route' },
+  { label: 'About',    to: '/about',    type: 'route' },
+  { label: 'Services', to: '/services', type: 'route' },
+  { label: 'Results',  to: '/results',  type: 'route' },
 ];
 
 export default function Header() {

@@ -70,3 +70,40 @@
     animation: none;
   }
 }
+
+/* ══════════════════════════════════════
+   PAGE HEADERS (Services / Results)
+══════════════════════════════════════ */
+.page-header {
+  padding: 160px 0 60px;
+  background: linear-gradient(180deg, var(--off-white) 0%, #ffffff 100%);
+  text-align: center;
+}
+
+.page-header .section-tag {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.page-title {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+.page-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .page-header {
+    padding: 130px 0 40px;
+  }
+}

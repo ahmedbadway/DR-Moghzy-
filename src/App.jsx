@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import ResultsPage from './pages/ResultsPage';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -13,6 +15,8 @@ function AnimatedRoutes() {
       <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/results" element={<ResultsPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </main>
