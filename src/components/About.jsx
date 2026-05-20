@@ -30,7 +30,7 @@ export default function About() {
           <div className="about-left fade-in">
             <div className="about-img-wrap">
               <PlaceholderImg
-                src="./images/about-treatment.jpg"
+                src={`${import.meta.env.BASE_URL}images/about-treatment.png`}
                 alt="Hair restoration procedure"
                 className="about-img"
                 type="treatment"

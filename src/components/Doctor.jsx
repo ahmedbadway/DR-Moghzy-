@@ -19,7 +19,7 @@ export default function Doctor() {
       {/* Background image with overlay */}
       <div className="doctor-bg">
         <PlaceholderImg
-          src="./images/doctor-bg.jpg"
+          src={`${import.meta.env.BASE_URL}images/doctor-bg.jpg`}
           alt="Doctor examining scalp"
           type="doctor-bg"
         />

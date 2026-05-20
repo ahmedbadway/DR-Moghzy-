@@ -107,7 +107,7 @@ export default function Hero() {
             <div className="hero-premium-card hero-anim hero-anim-4">
               <div className="hero-premium-img">
                 <PlaceholderImg
-                  src="./images/doctor.jpg"
+                  src={`${import.meta.env.BASE_URL}images/doctor.jpg`}
                   alt="Premium Hair Care"
                   type="hero-doctor"
                 />
