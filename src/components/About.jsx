@@ -22,7 +22,7 @@ export default function About() {
   }, []);
 
   return (
-    <section className="about" id="about" ref={ref}>
+    <section className="about" ref={ref}>
       <div className="container">
         <div className="about-inner">
 

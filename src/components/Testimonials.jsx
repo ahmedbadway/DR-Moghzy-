@@ -97,7 +97,7 @@ export default function Testimonials() {
   const next = () => setCurrent(c => Math.min(maxIndex, c + 1));
 
   return (
-    <section className="testimonials" id="testimonials" ref={sectionRef}>
+    <section className="testimonials" id="results" ref={sectionRef}>
       <div className="container">
 
         {/* Header */}

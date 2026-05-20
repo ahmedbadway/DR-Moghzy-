@@ -28,7 +28,7 @@ export default function DoctorProfile() {
   }, []);
 
   return (
-    <section className="dp" id="profile" ref={ref}>
+    <section className="dp" id="about" ref={ref}>
       {/* Decorative background shapes */}
       <div className="dp-bg-circle dp-bg-circle--1" />
       <div className="dp-bg-circle dp-bg-circle--2" />

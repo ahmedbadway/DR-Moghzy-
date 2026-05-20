@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../styles/hero.css';
 import PlaceholderImg from './PlaceholderImg';
 
@@ -8,7 +7,6 @@ const HERO_VIDEO = `${import.meta.env.BASE_URL}videos/hero-video.mp4`;
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -69,7 +67,7 @@ export default function Hero() {
                 Book A Session
                 <span className="hero-btn-arrow">→</span>
               </button>
-              <button className="hero-btn-ghost" onClick={() => navigate('/about')}>
+              <button className="hero-btn-ghost" onClick={() => scrollTo('#about')}>
                 About the Doctor
               </button>
             </div>
