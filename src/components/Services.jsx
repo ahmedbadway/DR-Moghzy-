@@ -9,8 +9,6 @@ const services = [
   { badge: 'Advanced',     icon: '💉', image: `${IMG}service-2.jpg`, placeholderType: 'prp',     title: 'PRP Hair Treatment',      desc: 'Platelet-Rich Plasma therapy stimulates hair follicles and promotes natural hair regrowth for thicker, healthier hair.',                           stat: '6 Month Results' },
   { badge: 'Cosmetic',     icon: '✨', image: `${IMG}service-3.jpg`, placeholderType: 'cosmetic', title: 'Cosmetic Surgery',        desc: 'Expert cosmetic procedures including rhinoplasty, facelifts, and more to enhance your natural beauty with precision.',                           stat: '500+ Done' },
   { badge: 'Non-Surgical', icon: '🌿', image: `${IMG}service-4.jpg`, placeholderType: 'scalp',   title: 'Scalp Micropigmentation', desc: 'A non-surgical solution that creates the appearance of fuller hair through precise scalp pigmentation techniques.',                           stat: 'Pain Free' },
-  { badge: 'Specialized',  icon: '🧔', image: `${IMG}service-5.jpg`, placeholderType: 'fue',     title: 'Beard & Eyebrow Transplant', desc: 'Restore fullness to your beard, mustache, or eyebrows using the same precise FUE technique adapted for facial hair.',                            stat: 'Natural Density' },
-  { badge: 'Regenerative', icon: '🧬', image: `${IMG}service-6.jpg`, placeholderType: 'prp',     title: 'Hair Mesotherapy',        desc: 'Targeted micro-injections of vitamins and growth factors directly into the scalp to nourish follicles and stimulate growth.',                     stat: 'No Downtime' },
 ];
 
 export default function Services() {
