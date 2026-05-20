@@ -7,8 +7,6 @@ const navLinks = [
   { label: 'About',    to: '/about',  type: 'route' },
   { label: 'Services', to: '#services', type: 'anchor' },
   { label: 'Results',  to: '#testimonials', type: 'anchor' },
-  { label: 'News',     to: '#news', type: 'anchor' },
-  { label: 'Pricing',  to: '#cta', type: 'anchor' },
 ];
 
 export default function Header() {

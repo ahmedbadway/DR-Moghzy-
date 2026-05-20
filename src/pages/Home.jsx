@@ -4,7 +4,6 @@ import Stats from '../components/Stats';
 import Services from '../components/Services';
 import Doctor from '../components/Doctor';
 import Testimonials from '../components/Testimonials';
-import News from '../components/News';
 import CTA from '../components/CTA';
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
       <Services />
       <Doctor />
       <Testimonials />
-      <News />
       <CTA />
     </div>
   );
