@@ -4,6 +4,7 @@ import '../styles/hero.css';
 import PlaceholderImg from './PlaceholderImg';
 
 const HERO_BG = `${import.meta.env.BASE_URL}images/hero-bg.jpg`;
+const HERO_VIDEO = `${import.meta.env.BASE_URL}videos/hero-video.mp4`;
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -22,14 +23,21 @@ export default function Hero() {
   return (
     <section className="hero" id="hero">
 
-      {/* ── PARALLAX BACKGROUND IMAGE ── */}
+      {/* ── PARALLAX VIDEO BACKGROUND ── */}
       <div
         className="hero-bg"
-        style={{
-          backgroundImage: `url(${HERO_BG})`,
-          transform: `translate3d(0, ${parallaxOffset}px, 0)`,
-        }}
-      />
+        style={{ transform: `translate3d(0, ${parallaxOffset}px, 0)` }}
+      >
+        <video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={HERO_BG}
+          src={HERO_VIDEO}
+        />
+      </div>
 
       {/* Dark overlay */}
       <div className="hero-overlay" />

@@ -13,19 +13,25 @@
   margin-left: calc(50% - 50vw);
 }
 
-/* Parallax background image — translated via JS at 70% scroll speed */
+/* Parallax video background — translated via JS at 70% scroll speed */
 .hero-bg {
   position: absolute;
   top: -20vh;
   left: 0;
   width: 100vw;
   height: 140vh;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
   z-index: 0;
+  overflow: hidden;
   will-change: transform;
   transition: transform 0.05s linear;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
 }
 
 .hero-overlay {
