@@ -1,32 +1,30 @@
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/global.css';
+import './styles/transitions.css';
 import Header from './components/Header';
-import DoctorProfile from './components/DoctorProfile';
-import Hero from './components/Hero';
-import Stats from './components/Stats';
-import About from './components/About';
-import Services from './components/Services';
-import Doctor from './components/Doctor';
-import Testimonials from './components/Testimonials';
-import News from './components/News';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <main key={location.pathname} className="page-transition">
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </main>
+  );
+}
 
 export default function App() {
   return (
-    <>
+    <HashRouter>
       <Header />
-      <main>
-        <DoctorProfile />
-        <Hero />
-        <Stats />
-        <About />
-        <Services />
-        <Doctor />
-        <Testimonials />
-        <News />
-        <CTA />
-      </main>
+      <AnimatedRoutes />
       <Footer />
-    </>
+    </HashRouter>
   );
 }

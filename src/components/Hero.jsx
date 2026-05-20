@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/hero.css';
 import PlaceholderImg from './PlaceholderImg';
 
+const HERO_BG = `${import.meta.env.BASE_URL}images/hero-bg.jpg`;
+
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -13,21 +17,19 @@ export default function Hero() {
 
   const scrollTo = (id) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
+  const parallaxOffset = scrollY * 0.7;
+
   return (
     <section className="hero" id="hero">
 
-      {/* ── VIDEO BACKGROUND ── */}
-      <div className="hero-video-wrap">
-        <video
-          className="hero-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="./images/hero-bg.jpg"
-          src="./videos/hero-video.mp4"
-        />
-      </div>
+      {/* ── PARALLAX BACKGROUND IMAGE ── */}
+      <div
+        className="hero-bg"
+        style={{
+          backgroundImage: `url(${HERO_BG})`,
+          transform: `translate3d(0, ${parallaxOffset}px, 0)`,
+        }}
+      />
 
       {/* Dark overlay */}
       <div className="hero-overlay" />
@@ -38,29 +40,29 @@ export default function Hero() {
 
           {/* LEFT */}
           <div className="hero-left">
-            <div className="hero-badge">
+            <div className="hero-badge hero-anim hero-anim-1">
               <span className="hero-badge-dot" />
               Simple Care, Stronger Hair Growth
             </div>
 
-            <h1 className="hero-title">
+            <h1 className="hero-title hero-anim hero-anim-2">
               Permanent Hair<br />
               Restoration That<br />
               Looks Natural
             </h1>
 
-            <p className="hero-desc">
+            <p className="hero-desc hero-anim hero-anim-3">
               Achieve natural-looking hair restoration results with our expert team
               using advanced techniques and personalized care for every client.
             </p>
 
-            <div className="hero-actions">
+            <div className="hero-actions hero-anim hero-anim-4">
               <button className="hero-btn-book" onClick={() => scrollTo('#cta')}>
                 Book A Session
                 <span className="hero-btn-arrow">→</span>
               </button>
-              <button className="hero-btn-ghost" onClick={() => scrollTo('#services')}>
-                View Solutions
+              <button className="hero-btn-ghost" onClick={() => navigate('/about')}>
+                About the Doctor
               </button>
             </div>
           </div>
@@ -69,7 +71,7 @@ export default function Hero() {
           <div className="hero-right">
 
             {/* Rating card */}
-            <div className="hero-rating-card">
+            <div className="hero-rating-card hero-anim hero-anim-3">
               <div className="hero-rating-avatars">
                 {['AH', 'MK', 'SR'].map((init, i) => (
                   <div
@@ -94,7 +96,7 @@ export default function Hero() {
             </div>
 
             {/* Premium Hair Care card */}
-            <div className="hero-premium-card">
+            <div className="hero-premium-card hero-anim hero-anim-4">
               <div className="hero-premium-img">
                 <PlaceholderImg
                   src="./images/doctor.jpg"
